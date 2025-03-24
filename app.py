@@ -110,7 +110,7 @@ def register():
 def dashboard():
     if request.method =='POST':
         content = request.form.get('note')
-        msg = Message('New Note added', sender='nikhilrpatil03@gmail.com', recipients=[current_user.email])
+        msg = Message('New Note added', sender='sender_mail_id', recipients=[current_user.email])
         msg.body = f'Hello {current_user.username},\n\nYou just added a new note: "{content}"'
         mail.send(msg)
         if content:
@@ -125,7 +125,7 @@ def dashboard():
 @login_required
 def delete_note(note_id):
     note = Note.query.get(note_id)
-    msg = Message('Note Deleted', sender='nikhilrpatil03@gmail.com', recipients=[current_user.email])
+    msg = Message('Note Deleted', sender='sender_mail_id', recipients=[current_user.email])
     msg.body = f'Hello {current_user.username},\n\nYou just deleted a note: "{note.content}"'
     mail.send(msg)
 
@@ -148,7 +148,7 @@ def send_reminder():
     with app.app_context():
         users = User.query.all()
         for user in users:
-            msg = Message('Daily Reminder' , sender="nikhilrpatil03@gmail.com" , recipients=[user.email])
+            msg = Message('Daily Reminder' , sender="sender_mail_id" , recipients=[user.email])
             msg.body = f' hello {user.username}, \n\nThis is you daily reminder to check your notes!'
             mail.send(msg)
         print(f"Reminder emails send at {datetime.now()}")
