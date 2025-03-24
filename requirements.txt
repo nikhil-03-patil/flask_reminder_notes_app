@@ -6,3 +6,4 @@ WTForms
 Flask-Bcrypt
 Flask-Mail
 gunicorn
+APScheduler
