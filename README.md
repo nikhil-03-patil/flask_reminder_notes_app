@@ -1,4 +1,4 @@
-# 📝 Flask Reminder App
+# 📝 Flask QuickNote App
 
 A simple Flask-based **note-taking and reminder application** that allows users to **add, delete, and receive reminders via email** for their notes.
 
